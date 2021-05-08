@@ -19,6 +19,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CristianRP.Repository", "Cr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CristianRP.Utilities", "CristianRP.Utilities\CristianRP.Utilities.csproj", "{F7D2D9E2-F4D7-4DCF-BF38-6743243E3944}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CristianRP.Common", "CristianRP.Common\CristianRP.Common.csproj", "{9CEB138B-2FD0-4DAD-B721-3BDF3B0CEBB4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -41,6 +43,10 @@ Global
 		{F7D2D9E2-F4D7-4DCF-BF38-6743243E3944}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F7D2D9E2-F4D7-4DCF-BF38-6743243E3944}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F7D2D9E2-F4D7-4DCF-BF38-6743243E3944}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9CEB138B-2FD0-4DAD-B721-3BDF3B0CEBB4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9CEB138B-2FD0-4DAD-B721-3BDF3B0CEBB4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9CEB138B-2FD0-4DAD-B721-3BDF3B0CEBB4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9CEB138B-2FD0-4DAD-B721-3BDF3B0CEBB4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -50,6 +56,7 @@ Global
 		{B3423855-DB43-4423-91BB-E13267D5A823} = {41C0470A-43E9-418C-9B20-E277E0A89BB7}
 		{8D578F6F-D413-42A5-B1D0-7187BC17EC23} = {DE4D4930-3B33-4D92-ACD0-FECF900A9A26}
 		{F7D2D9E2-F4D7-4DCF-BF38-6743243E3944} = {B0E0881E-7DF3-4B5E-B4B6-6DCBE8378B5C}
+		{9CEB138B-2FD0-4DAD-B721-3BDF3B0CEBB4} = {B0E0881E-7DF3-4B5E-B4B6-6DCBE8378B5C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {4B0D6A68-C601-4239-84E7-53550EC184EF}

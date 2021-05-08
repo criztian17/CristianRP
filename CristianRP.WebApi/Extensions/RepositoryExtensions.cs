@@ -8,7 +8,7 @@ using System.Reflection;
 
 namespace CristianRP.WebApi.Extensions
 {
-    public static class RepositoryExtension
+    public static class RepositoryExtensions
     {
         public static IServiceCollection AddRepository(this IServiceCollection service)
         {

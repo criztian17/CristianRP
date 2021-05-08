@@ -22,7 +22,10 @@ namespace CristianRP.WebApi
         {
             services.AddControllers();
 
-            services.AddRepository();
+            services
+                .AddAthentication(Configuration)
+                .AddSwaggerDocumentation()
+                .AddRepository();
             
         }
 
@@ -34,6 +37,8 @@ namespace CristianRP.WebApi
                 app.UseDeveloperExceptionPage();
             }
 
+            app.UseCors("MyPolicy");
+
             app.UseRouting();
 
             app.UseAuthorization();
@@ -42,6 +47,8 @@ namespace CristianRP.WebApi
             {
                 endpoints.MapControllers();
             });
+
+            app.UseSwaggerDocumentation(Configuration);
         }
     }
 }
