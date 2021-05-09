@@ -25,7 +25,8 @@ namespace CristianRP.WebApi
             services
                 .AddAthentication(Configuration)
                 .AddSwaggerDocumentation()
-                .AddRepository();
+                .AddRepository()
+                .AddBusinessLogic();
             
         }
 

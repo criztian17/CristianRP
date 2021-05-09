@@ -15,6 +15,6 @@ namespace CristianRP.Common.Dtos
         /// <summary>
         /// Token Expiration
         /// </summary>
-        public DateTime Espiration { get; set; }
+        public DateTime ExpirationDate { get; set; }
     }
 }
