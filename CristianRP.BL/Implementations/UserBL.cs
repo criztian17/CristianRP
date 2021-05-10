@@ -1,10 +1,10 @@
-﻿using CristianRP.BL.Interfaces;
-using CristianRP.BL.Mappers;
+﻿using CristianRP.BL.Helpers;
+using CristianRP.BL.Interfaces;
 using CristianRP.Common.Dtos;
+using CristianRP.Repository.Entities;
 using CristianRP.Repository.Repositories.Interfaces;
 using System;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace CristianRP.BL.Implementations
 {
@@ -33,7 +33,7 @@ namespace CristianRP.BL.Implementations
                     return new UserDto { Login = string.Empty , Pwd = string.Empty};
                 }
 
-                return user.FirstOrDefault().ToUserDtoMapper();
+                return MapperGenericHelper<UserEntity, UserDto>.ToMapper(user.FirstOrDefault());
             }
             catch (Exception ex)
             {

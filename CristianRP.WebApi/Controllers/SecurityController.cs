@@ -46,7 +46,7 @@ namespace CristianRP.WebApi.Controllers
                     throw ex;
                 }
                 
-                return await ActionResultException.ResultException(businessException, HttpContext);
+                return await ActionResultExceptionHelper.ResultException(businessException, HttpContext);
             }
         }
         #endregion

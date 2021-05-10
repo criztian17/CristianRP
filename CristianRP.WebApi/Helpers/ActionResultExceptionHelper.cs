@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace CristianRP.WebApi.Helpers
 {
-    public static class ActionResultException
+    public static class ActionResultExceptionHelper
     {
         public static async Task<ActionResult> ResultException(BusinessException businessException , HttpContext httpContext)
         {

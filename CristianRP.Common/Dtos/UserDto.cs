@@ -1,4 +1,6 @@
-﻿namespace CristianRP.Common.Dtos
+﻿using System.Text.Json.Serialization;
+
+namespace CristianRP.Common.Dtos
 {
     /// <summary>
     /// UserDto Class
@@ -14,5 +16,11 @@
         /// UserDto Password
         /// </summary>
         public string Pwd { get; set; }
+
+        /// <summary>
+        /// UserDto Role
+        /// </summary>
+        [JsonIgnore]
+        public string Role { get; set; }
     }
 }

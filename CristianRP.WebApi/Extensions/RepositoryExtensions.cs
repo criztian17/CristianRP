@@ -14,10 +14,12 @@ namespace CristianRP.WebApi.Extensions
         {
             service.AddDbContext<DataContext>(cfg =>
             {
-                cfg.UseSqlite("FileName=CristianRPDb" , option => 
-                {
-                    option.MigrationsAssembly(Assembly.GetExecutingAssembly().FullName);
-                });
+               
+                cfg.UseSqlite("FileName=CristianRPDb", option =>
+               {
+                   option.MigrationsAssembly(Assembly.GetExecutingAssembly().FullName);
+               });
+
             });
             service.AddTransient<Seed>();
             service.AddScoped<IPropertyRepository, PropertyRepository>();

@@ -25,9 +25,9 @@ namespace CristianRP.Repository.Repositories
             {
                 var users = new List<UserEntity>
                 {
-                    new UserEntity { Login = "cristian@test.com.co", Pwd = Utilities.Utilities.Encrypt("cristian") },
-                    new UserEntity { Login = "camilo@test.com.co", Pwd = Utilities.Utilities.Encrypt("camilo") },
-                    new UserEntity { Login = "lucas@test.com.co", Pwd = Utilities.Utilities.Encrypt("lucas") },
+                    new UserEntity { Login = "cristian@test.com.co", Pwd = Utilities.Utilities.Encrypt("cristian"), Role = "Admin" },
+                    new UserEntity { Login = "camilo@test.com.co", Pwd = Utilities.Utilities.Encrypt("camilo") , Role = "Regular"},
+                    new UserEntity { Login = "lucas@test.com.co", Pwd = Utilities.Utilities.Encrypt("lucas"), Role = "External"},
                 };
 
                 await _unitOfWork.DataContext.Users.AddRangeAsync(users);

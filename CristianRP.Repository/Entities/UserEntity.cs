@@ -18,5 +18,10 @@ namespace CristianRP.Repository.Entities
         /// User Password
         /// </summary>
         public string Pwd { get; set; }
+
+        /// <summary>
+        /// User Role
+        /// </summary>
+        public string Role { get; set; }
     }
 }

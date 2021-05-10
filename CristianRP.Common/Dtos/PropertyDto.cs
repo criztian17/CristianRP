@@ -14,5 +14,10 @@
         /// PropertyDto Code
         /// </summary>
         public string Code { get; set; }
+
+        /// <summary>
+        /// Property Address
+        /// </summary>
+        public string Address { get; set; }
     }
 }

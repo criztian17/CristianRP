@@ -20,12 +20,12 @@ namespace CristianRP.Repository
         {
             modelBuilder.Entity<PropertyEntity>(entity =>
             {
-                entity.HasIndex(i => i.Code);
+                entity.HasIndex(i => i.Code).IsUnique();
             });
 
             modelBuilder.Entity<UserEntity>(entity =>
             {
-                entity.HasIndex(i => i.Login);
+                entity.HasIndex(i => i.Login).IsUnique();
             });
 
             base.OnModelCreating(modelBuilder);

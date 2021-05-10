@@ -35,22 +35,26 @@ namespace CristianRP.BL.Implementations
 
         public async Task<TokenDto> GenerateTokenAsync(UserDto user)
         {
-
-            if (!ValidateDataToCreateToken(user))
+            try
             {
-                throw new BusinessException(400, Constants.UserEmptyCredentialErrorMessage);
+                if (!ValidateDataToCreateToken(user))
+                {
+                    throw new BusinessException(400, Constants.UserEmptyCredentialErrorMessage);
+                }
+
+                var userResult = _userBL.GetUserByLogin(user.Login);
+
+                if (Utilities.Utilities.Decrypt(userResult.Pwd) != user.Pwd)
+                {
+                    throw new BusinessException(400, Constants.UserCredentialErrorMessage);
+                }
+
+                return await Task.FromResult(CreateToken(user , userResult.Role));
             }
-
-            var userResult = _userBL.GetUserByLogin(user.Login);
-
-            if (Utilities.Utilities.Decrypt(userResult.Pwd) != user.Pwd)
+            catch (Exception ex)
             {
-                throw new BusinessException(400, Constants.UserCredentialErrorMessage);
+                throw ex;
             }
-
-            return await Task.FromResult(CreateToken(user));
-
-
         }
 
         #endregion
@@ -72,12 +76,19 @@ namespace CristianRP.BL.Implementations
             return false;
         }
 
-        private TokenDto CreateToken(UserDto user)
+        /// <summary>
+        /// Generate the Token
+        /// </summary>
+        /// <param name="user">UserDto object</param>
+        /// <param name="role">Role of the user</param>
+        /// <returns>TokenDto object</returns>
+        private TokenDto CreateToken(UserDto user , string role)
         {
             var claims = new[]
                     {
                     new Claim(JwtRegisteredClaimNames.Sub , user.Login),
-                    new Claim(JwtRegisteredClaimNames.Jti , Guid.NewGuid().ToString())
+                    new Claim(JwtRegisteredClaimNames.Jti , Guid.NewGuid().ToString()),
+                    new Claim("roles", role)
                 };
 
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Tokens:Key"]));
@@ -85,7 +96,7 @@ namespace CristianRP.BL.Implementations
             var token = new JwtSecurityToken(
                 _configuration["Tokens:Issuer"],
                 _configuration["Tokens:Audience"],
-                claims,
+                claims ,
                 expires: DateTime.UtcNow.AddDays(1),
                 signingCredentials: credentials);
 

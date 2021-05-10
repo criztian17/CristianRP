@@ -10,7 +10,8 @@ namespace CristianRP.WebApi.Extensions
         {
             services
                 .AddScoped<IUserBL, UserBL>()
-                .AddScoped<ISecurityBL, SecurityBL>();
+                .AddScoped<ISecurityBL, SecurityBL>()
+                .AddScoped<IPropertyBL, PropertyBL>();
             return services;
         }
     }

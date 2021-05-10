@@ -62,7 +62,7 @@ namespace CristianRP.WebApi.Extensions
         public void Configure(SwaggerGenOptions options)
         {
             options.SwaggerDoc("v1", new OpenApiInfo { Title = "CristianRP  V1", Version = "v1" });
-                        options.EnableAnnotations();
+            options.EnableAnnotations();
 
             options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
             {
@@ -73,6 +73,20 @@ namespace CristianRP.WebApi.Extensions
                 Scheme = "Bearer"
             });
 
+            options.AddSecurityRequirement(new OpenApiSecurityRequirement
+            {
+                {
+                    new OpenApiSecurityScheme
+                        {
+                            Reference = new OpenApiReference
+                            {
+                                Type = ReferenceType.SecurityScheme,
+                                Id = "Bearer"
+                            }
+                        },
+                        new string[] {}
+                }
+            });
         }
     }
 }
